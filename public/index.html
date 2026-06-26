@@ -3,1106 +3,1020 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guet Patrimoine Caduceen - Découvrir et préserver le patrimoine des Hautes-Pyrénées</title>
-    <meta name="description" content="Association dédiée à la valorisation, découverte et transmission du patrimoine historique, culturel et architectural du Caduceen dans les Hautes-Pyrénées (65).">
-    <meta name="author" content="Guet Patrimoine Caduceen">
-    <meta name="keywords" content="patrimoine, Hautes-Pyrénées, Cadéac, histoire, culture, association, visites guidées, conférences">
+    <title>Guet Patrimoine Caduceen | Sauvegarde du patrimoine des Hautes-Pyrénées</title>
+    <meta name="description" content="Association dédiée à la préservation et à la transmission du patrimoine historique, culturel et architectural du Caduceen dans les Hautes-Pyrénées (65).">
 
-    <meta property="og:title" content="Guet Patrimoine Caduceen - Patrimoine des Hautes-Pyrénées">
-    <meta property="og:description" content="Découvrez et préservez le patrimoine du Caduceen avec notre association. Visites guidées, conférences et animations dans les Hautes-Pyrénées.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Guet Patrimoine Caduceen">
+    <meta property="og:description" content="Découvrez et préservez le patrimoine du Caduceen avec nos visites guidées, conférences et animations.">
     <meta property="og:type" content="website">
-
+    <meta property="og:image" content="https://www.gpc65-gestion.cazu1740.odns.fr/images/patrimoine-hero.jpg">
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary': {
-                            DEFAULT: '#dc2626',
-                            'light': '#ef4444',
-                            'dark': '#b91c1c'
+                        // Palette inspirée du patrimoine (pierre, terre, bois)
+                        'patrimoine': {
+                            'stone': '#8B7355',    // Pierre ancienne
+                            'clay': '#A0522D',      // Terre cuite
+                            'wood': '#CD853F',      // Bois vieilli
+                            'parchment': '#F5F5DC', // Parchemin
+                            'moss': '#556B2F',      // Vert mousse
+                            'gold': '#D4AF37'       // Or vieilli
                         },
-                        'secondary': {
-                            DEFAULT: '#fbbf24',
-                            'light': '#fcd34d', 
-                            'dark': '#f59e0b'
-                        },
-                        'accent': '#f97316'
+                        'primary': '#8B4513',   // Brun terre de Sienne (remplace le rouge)
+                        'secondary': '#CD853F', // Or vieilli (remplace le jaune)
+                        'accent': '#556B2F'     // Vert olive
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'Georgia', 'serif'], // Pour les titres (style vieux livre)
+                        'sans': ['"Lora"', 'system-ui', 'sans-serif'],       // Pour le corps (lisible)
+                        'handwritten': ['"Dancing Script"', 'cursive']      // Pour les citations
+                    },
+                    backgroundImage: {
+                        'parchment': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRjVGNUQ3Ii8+PHBhdGggZD0iTTIwIDIwTDIwIDIwSDIwIDIwWiIgZmlsbD0iI0Y1RjVGNyIgc3Ryb2tlPSIjRkY2NjMzIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')",
+                        'stone': "linear-gradient(135deg, #8B7355 0%, #A0522D 50%, #8B4513 100%)"
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
+                        'fadeIn': 'fadeIn 1s ease-in-out',
+                        'slideUp': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
                     }
                 }
             }
         }
     </script>
-
+    <!-- Google Fonts (Polices historiques) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
-        /* Custom CSS for Occitanie colors and design */
-        :root {
-            --gradient-primary: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-            --gradient-secondary: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
-            --gradient-hero: linear-gradient(135deg, #dc2626 0%, #fbbf24 100%);
-            --gradient-warm: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
-            --shadow-primary: 0 10px 30px -10px rgba(220, 38, 38, 0.3);
-            --shadow-secondary: 0 10px 30px -10px rgba(251, 191, 36, 0.4);
-            --shadow-warm: 0 4px 20px -4px rgba(251, 146, 60, 0.3);
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        /* Texture de papier vieilli */
+        .bg-parchment {
+            background-color: #F5F5DC;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiM0MzMzMzMiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjxwYXRoIGQ9Ik0wIDEwMCBMMTAwIDAgTTAgMTAwWiIgZmlsbD0iI0Y1RjVGNyIgc3Ryb2tlPSIjRkY2NjMzIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+');
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* Ombre douce pour effet "gravure" */
+        .shadow-engraved {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        .gradient-primary {
-            background: var(--gradient-primary);
+        /* Bordure style "moulure" */
+        .border-moulding {
+            border: 1px solid #8B7355;
+            position: relative;
         }
-        
-        .gradient-secondary {
-            background: var(--gradient-secondary);
-        }
-        
-        .gradient-hero {
-            background: var(--gradient-hero);
-        }
-        
-        .gradient-warm {
-            background: var(--gradient-warm);
-        }
-        
-        .shadow-primary {
-            box-shadow: var(--shadow-primary);
-        }
-        
-        .shadow-secondary {
-            box-shadow: var(--shadow-secondary);
-        }
-        
-        .shadow-warm {
-            box-shadow: var(--shadow-warm);
-        }
-        
-        .transition-smooth {
-            transition: var(--transition-smooth);
-        }
-        
-        .transition-bounce {
-            transition: var(--transition-bounce);
+        .border-moulding::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 1px solid #A0522D;
+            z-index: -1;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        /* Effet de vieillissement pour les images */
+        .img-vintage {
+            filter: sepia(20%) brightness(95%) contrast(105%);
+            border: 2px solid #8B7355;
+            box-shadow: 0 0 10px rgba(139, 115, 85, 0.3);
         }
 
-        @keyframes pulse-soft {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        /* Style pour les citations */
+        .quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #556B2F;
+            border-left: 3px solid #D4AF37;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
         }
 
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        /* Animation au survol pour les cartes */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(139, 115, 85, 0.2);
         }
 
-        .animate-pulse-soft {
-            animation: pulse-soft 3s ease-in-out infinite;
-        }
-
-        /* Mobile menu */
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .mobile-menu.open {
+        /* Mobile: Menu hamburger personnalisé */
+        #mobile-menu-toggle:checked ~ #mobile-menu {
             transform: translateX(0);
         }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-        }
-        .modal.open {
-            display: flex;
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
         }
     </style>
 </head>
 
-<body class="bg-amber-50 text-gray-800">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 gradient-warm border-b border-amber-200 backdrop-blur-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 gradient-hero rounded-lg flex items-center justify-center shadow-primary">
-                        <span class="text-white font-bold text-lg">GPC</span>
+<body class="bg-patrimoine-parchment text-gray-800 font-sans">
+    <!-- Header avec effet parchemin -->
+    <header class="sticky top-0 z-50 bg-patrimoine-stone/90 backdrop-blur-sm shadow-engraved">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo : Sceau médiéval stylisé -->
+                <a href="/" class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-patrimoine-gold rounded-full flex items-center justify-center border-2 border-patrimoine-clay shadow-engraved">
+                        <span class="text-white font-serif text-lg font-bold">GPC</span>
                     </div>
                     <div class="hidden sm:block">
-                        <h1 class="text-lg font-bold text-red-600 leading-tight">
-                            Guet Patrimoine<br>
-                            <span class="text-yellow-500 text-sm">Caduceen</span>
+                        <h1 class="text-xl font-serif font-bold text-patrimoine-parchment">
+                            Guet Patrimoine
                         </h1>
+                        <p class="text-sm text-patrimoine-gold">Caduceen</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Desktop Navigation -->
+                <!-- Navigation Desktop -->
                 <nav class="hidden lg:flex items-center gap-8">
-                    <a href="#association" class="text-sm font-medium text-gray-800 hover:text-red-600 transition-smooth relative group">
-                        Association
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-primary group-hover:w-full transition-smooth"></div>
-                    </a>
-                    <a href="#histoire" class="text-sm font-medium text-gray-800 hover:text-red-600 transition-smooth relative group">
-                        Histoire
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-primary group-hover:w-full transition-smooth"></div>
-                    </a>
-                    <a href="#evenements" class="text-sm font-medium text-gray-800 hover:text-red-600 transition-smooth relative group">
-                        Évènements
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-primary group-hover:w-full transition-smooth"></div>
-                    </a>
-                    <a href="#contact" class="text-sm font-medium text-gray-800 hover:text-red-600 transition-smooth relative group">
-                        Contact
-                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-primary group-hover:w-full transition-smooth"></div>
-                    </a>
+                    <a href="#association" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors font-medium">Association</a>
+                    <a href="#histoire" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors font-medium">Histoire</a>
+                    <a href="#actualites" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors font-medium">Actualités</a>
+                    <a href="#evenements" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors font-medium">Événements</a>
+                    <a href="#contact" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors font-medium">Contact</a>
+                    <a href="#adhérer" class="bg-patrimoine-gold text-patrimoine-stone px-4 py-2 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors">Adhérer</a>
                 </nav>
 
-                <!-- CTA Button -->
-                <div class="hidden md:flex">
-                    <button class="bg-white/10 border border-white/20 text-red-600 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition-smooth">
-                        Adhérer
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-lg hover:bg-amber-100 transition-smooth" id="mobile-menu-toggle">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div class="lg:hidden mobile-menu fixed inset-0 bg-white z-50" id="mobile-menu">
-                <div class="p-4 bg-white">
-                    <div class="flex justify-between items-center mb-8">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 gradient-hero rounded-lg flex items-center justify-center shadow-primary">
-                                <span class="text-white font-bold text-lg">GPC</span>
+                <!-- Navigation Mobile -->
+                <div class="lg:hidden">
+                    <input type="checkbox" id="mobile-menu-toggle" class="hidden">
+                    <label for="mobile-menu-toggle" class="cursor-pointer">
+                        <svg class="w-6 h-6 text-patrimoine-parchment" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </label>
+                    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-patrimoine-stone/95 backdrop-blur-sm p-6 shadow-2xl">
+                        <div class="flex justify-between items-center mb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 bg-patrimoine-gold rounded-full flex items-center justify-center">
+                                    <span class="text-white font-serif text-sm font-bold">GPC</span>
+                                </div>
                             </div>
-                            <span class="text-lg font-bold text-red-600">Menu</span>
+                            <label for="mobile-menu-toggle" class="cursor-pointer">
+                                <svg class="w-6 h-6 text-patrimoine-parchment" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </label>
                         </div>
-                        <button class="p-2 rounded-lg hover:bg-amber-100 transition-smooth" id="mobile-menu-close">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
+                        <nav class="flex flex-col gap-4">
+                            <a href="#association" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors py-2">Association</a>
+                            <a href="#histoire" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors py-2">Histoire</a>
+                            <a href="#actualites" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors py-2">Actualités</a>
+                            <a href="#evenements" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors py-2">Événements</a>
+                            <a href="#contact" class="text-patrimoine-parchment hover:text-patrimoine-gold transition-colors py-2">Contact</a>
+                            <a href="#adhérer" class="bg-patrimoine-gold text-patrimoine-stone px-4 py-2 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors text-center mt-4">Adhérer</a>
+                        </nav>
                     </div>
-                    <nav class="bg-white flex flex-col gap-4">
-                        <a href="#association" class="text-lg font-medium text-gray-800 hover:text-red-600 transition-smooth px-2 py-3 border-b border-amber-100">Association</a>
-                        <a href="#histoire" class="text-lg font-medium text-gray-800 hover:text-red-600 transition-smooth px-2 py-3 border-b border-amber-100">Histoire</a>
-                        <a href="#evenements" class="text-lg font-medium text-gray-800 hover:text-red-600 transition-smooth px-2 py-3 border-b border-amber-100">Évènements</a>
-                        <a href="#contact" class="text-lg font-medium text-gray-800 hover:text-red-600 transition-smooth px-2 py-3 border-b border-amber-100">Contact</a>
-                        <div class="pt-4">
-                            <button class="gradient-hero text-white px-6 py-3 rounded-lg text-lg font-medium w-full shadow-primary hover:shadow-lg transition-smooth">
-                                Adhérer
-                            </button>
-                        </div>
-                    </nav>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-                 alt="Paysage des Hautes-Pyrénées" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-red-600/80 via-red-600/60 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-amber-50/30 via-transparent to-transparent"></div>
-        </div>
-
-        <div class="relative z-10 container mx-auto px-4 py-20">
-            <div class="max-w-4xl">
-                <!-- Badge -->
-                <div class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 mb-8 shadow-warm animate-float">
-                    <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <span class="text-sm font-medium text-red-600">Hautes-Pyrénées (65)</span>
-                </div>
-
-                <!-- Main Heading -->
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                    Découvrir, préserver et
-                    <span class="block bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
-                        transmettre
-                    </span>
-                    <span class="text-3xl md:text-5xl lg:text-6xl block mt-2">
-                        le patrimoine du Caduceen
-                    </span>
+    <!-- Hero Section : Image de patrimoine local + Message fort -->
+    <section class="relative h-[60vh] min-h-[400px] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');">
+        <div class="absolute inset-0 bg-patrimoine-stone/70"></div>
+        <div class="relative container mx-auto px-4 h-full flex items-center">
+            <div class="max-w-3xl text-patrimoine-parchment animate-fadeIn">
+                <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4">
+                    Préserver le patrimoine du Caduceen
                 </h1>
-
-                <!-- Description -->
-                <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl leading-relaxed">
-                    L'association <strong>Guet Patrimoine Caduceen</strong> œuvre pour valoriser, 
-                    faire découvrir et transmettre le patrimoine historique, culturel et 
-                    architectural de la région.
+                <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                    Découvrez, comprenez et transmettez l'histoire des Hautes-Pyrénées.
                 </p>
-
-                <!-- Features -->
-                <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="text-white font-medium">Visites guidées</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-                        <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                        </svg>
-                        <span class="text-white font-medium">Conférences</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3">
-                        <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        </svg>
-                        <span class="text-white font-medium">Animations</span>
-                    </div>
-                </div>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <button class="gradient-secondary text-gray-800 px-8 py-4 rounded-lg text-lg font-medium shadow-secondary hover:shadow-lg transition-smooth group">
-                        Je veux adhérer
-                        <svg class="w-5 h-5 inline-block ml-2 group-hover:translate-x-1 transition-smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                        </svg>
-                    </button>
-                    <button class="bg-white/10 border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-lg text-lg font-medium transition-smooth">
-                        Découvrir notre mission
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse-soft"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section id="association" class="py-20 gradient-warm">
-        <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-4xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-red-600 mb-6">
-                    Notre mission et nos valeurs
-                </h2>
-                <div class="w-24 h-1 gradient-hero mx-auto mb-8 rounded-full"></div>
-            </div>
-
-            <!-- Mission Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-smooth">
-                        Valoriser le patrimoine local
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Églises, sites naturels, traditions rurales
-                    </p>
-                </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-smooth">
-                        Transmettre l'histoire
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Culture du territoire aux générations futures
-                    </p>
-                </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-smooth">
-                        Organiser des événements
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Accessibles à tous les publics
-                    </p>
-                </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-smooth">
-                        Collaborer avec les partenaires
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Collectivités, écoles, associations locales
-                    </p>
-                </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-smooth">
-                        Favoriser l'inclusion
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Accessibilité pour tous les publics
-                    </p>
-                </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-smooth">
-                        Renforcer le lien social
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Développer l'attractivité du territoire
-                    </p>
-                </div>
-            </div>
-
-            <!-- Conviction Quote -->
-            <div class="max-w-4xl mx-auto">
-                <div class="gradient-secondary text-center shadow-secondary rounded-lg p-8 md:p-12">
-                    <div class="text-6xl text-gray-800/20 mb-4">"</div>
-                    <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-4">
-                        Notre conviction
-                    </h3>
-                    <p class="text-lg md:text-xl text-gray-800/90 leading-relaxed font-medium">
-                        Le partage de la mémoire collective renforce le lien social, 
-                        développe l'attractivité du territoire et favorise la transmission 
-                        des valeurs d'entraide, de respect et de solidarité.
-                    </p>
-                    <div class="text-6xl text-gray-800/20 mt-4 transform rotate-180">"</div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#histoire" class="bg-patrimoine-gold text-patrimoine-stone px-6 py-3 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors">
+                        Notre histoire
+                    </a>
+                    <a href="#adhérer" class="border-2 border-patrimoine-gold text-patrimoine-gold px-6 py-3 rounded-md font-medium hover:bg-patrimoine-gold hover:text-patrimoine-stone transition-colors">
+                        Rejoignez-nous
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- History Section -->
-    <section id="histoire" class="py-20 bg-amber-50">
+    <!-- Section Association : Mission et Valeurs -->
+    <section id="association" class="py-20 bg-patrimoine-parchment">
         <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-4xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-red-600 mb-6">
-                    Un peu d'histoire
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Contenu -->
+                <div class="animate-slideUp">
+                    <span class="inline-block bg-patrimoine-clay/10 text-patrimoine-clay px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        Notre Mission
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-patrimoine-stone mb-6">
+                        Qui sommes-nous ?
+                    </h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Le <strong class="text-patrimoine-clay">Guet Patrimoine Caduceen</strong> est une association loi 1901
+                        qui œuvre depuis 2014 pour la <strong>préservation</strong> et la <strong>valorisation</strong> du patrimoine
+                        historique, culturel et architectural du Caduceen dans les <strong>Hautes-Pyrénées</strong>.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                        Notre mission : <strong>faire découvrir, connaître et transmettre</strong> ce patrimoine unique
+                        à toutes les générations, à travers des visites guidées, des conférences et des animations.
+                    </p>
+
+                    <!-- Valeurs sous forme de liste élégante -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-patrimoine-stone/5 rounded-lg border-l-4 border-patrimoine-gold">
+                            <div class="w-8 h-8 bg-patrimoine-gold rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white text-sm">📜</span>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-patrimoine-stone mb-1">Transmission</h4>
+                                <p class="text-sm text-gray-600">Transmettre le savoir et les traditions aux générations futures.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-patrimoine-stone/5 rounded-lg border-l-4 border-patrimoine-gold">
+                            <div class="w-8 h-8 bg-patrimoine-gold rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white text-sm">🏛️</span>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-patrimoine-stone mb-1">Préservation</h4>
+                                <p class="text-sm text-gray-600">Protéger et restaurer les sites historiques du Caduceen.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-patrimoine-stone/5 rounded-lg border-l-4 border-patrimoine-gold">
+                            <div class="w-8 h-8 bg-patrimoine-gold rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-white text-sm">👥</span>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-patrimoine-stone mb-1">Partage</h4>
+                                <p class="text-sm text-gray-600">Rendre accessible le patrimoine à tous, habitants et visiteurs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image illustrative (remplacez par une photo locale) -->
+                <div class="animate-slideUp" style="animation-delay: 0.2s;">
+                    <div class="border-moulding p-2 bg-patrimoine-parchment">
+                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Village typique des Hautes-Pyrénées"
+                             class="w-full h-auto img-vintage rounded-lg">
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-2 italic">
+                        Vue de Cadéac, cœur du Caduceen
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Histoire : Timeline du patrimoine -->
+    <section id="histoire" class="py-20 bg-patrimoine-stone/10">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-4xl mx-auto mb-12 animate-fadeIn">
+                <span class="inline-block bg-patrimoine-moss/10 text-patrimoine-moss px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    Notre Histoire
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-patrimoine-stone mb-6">
+                    Le Caduceen à travers les siècles
                 </h2>
-                <div class="w-24 h-1 gradient-hero mx-auto mb-8 rounded-full"></div>
                 <p class="text-xl text-gray-600 leading-relaxed">
-                    Le territoire du Caduceen, situé au cœur des Hautes-Pyrénées, est riche 
-                    d'une histoire millénaire. Des premiers peuplements gallo-romains aux 
-                    traditions rurales d'aujourd'hui, chaque époque a laissé sa marque sur 
-                    les villages, les paysages et les habitants.
+                    Plongez dans l'histoire riche et mouvementée de notre région, des temps préhistoriques à aujourd'hui.
                 </p>
             </div>
 
-            <!-- Timeline -->
-            <div class="mb-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white border border-amber-200 rounded-lg p-6 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                        <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1"></path>
-                            </svg>
+            <!-- Timeline horizontale (responsive) -->
+            <div class="relative max-w-4xl mx-auto animate-slideUp">
+                <div class="absolute left-0 top-1/2 w-full h-0.5 bg-patrimoine-gold/30 -translate-y-1/2"></div>
+                <div class="flex justify-between items-start relative">
+                    <!-- Époque 1 -->
+                    <div class="w-1/4 text-center">
+                        <div class="relative mb-4">
+                            <div class="w-4 h-4 bg-patrimoine-gold rounded-full mx-auto"></div>
+                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-patrimoine-gold font-medium whitespace-nowrap">
+                                Préhistoire
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-red-600 mb-2">
-                            Époque Gallo-Romaine
-                        </h3>
+                        <h3 class="font-serif font-bold text-patrimoine-stone mb-2">Les origines</h3>
                         <p class="text-sm text-gray-600">
-                            Premiers peuplements et vestiges antiques
+                            Premières traces humaines dans les grottes des Hautes-Pyrénées.
                         </p>
                     </div>
 
-                    <div class="bg-white border border-amber-200 rounded-lg p-6 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                        <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                    <!-- Époque 2 -->
+                    <div class="w-1/4 text-center">
+                        <div class="relative mb-4">
+                            <div class="w-4 h-4 bg-patrimoine-gold rounded-full mx-auto"></div>
+                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-patrimoine-gold font-medium whitespace-nowrap">
+                                Moyen Âge
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-red-600 mb-2">
-                            Moyen Âge
-                        </h3>
+                        <h3 class="font-serif font-bold text-patrimoine-stone mb-2">L'âge des châteaux</h3>
                         <p class="text-sm text-gray-600">
-                            Construction des châteaux et églises romanes
+                            Construction des châteaux forts et développement des villages.
                         </p>
                     </div>
 
-                    <div class="bg-white border border-amber-200 rounded-lg p-6 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                        <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+                    <!-- Époque 3 -->
+                    <div class="w-1/4 text-center">
+                        <div class="relative mb-4">
+                            <div class="w-4 h-4 bg-patrimoine-gold rounded-full mx-auto"></div>
+                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-patrimoine-gold font-medium whitespace-nowrap">
+                                Renaissance
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-red-600 mb-2">
-                            Renaissance
-                        </h3>
+                        <h3 class="font-serif font-bold text-patrimoine-stone mb-2">L'essor culturel</h3>
                         <p class="text-sm text-gray-600">
-                            Développement des traditions agricoles
+                            Développement des églises romanes et du commerce.
                         </p>
                     </div>
 
-                    <div class="bg-white border border-amber-200 rounded-lg p-6 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                        <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-bounce shadow-primary">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            </svg>
+                    <!-- Époque 4 -->
+                    <div class="w-1/4 text-center">
+                        <div class="relative mb-4">
+                            <div class="w-4 h-4 bg-patrimoine-gold rounded-full mx-auto"></div>
+                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-patrimoine-gold font-medium whitespace-nowrap">
+                                Époque moderne
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-red-600 mb-2">
-                            Aujourd'hui
-                        </h3>
+                        <h3 class="font-serif font-bold text-patrimoine-stone mb-2">Le patrimoine aujourd'hui</h3>
                         <p class="text-sm text-gray-600">
-                            Préservation et transmission du patrimoine
+                            Préservation et transmission par notre association.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Heritage Images and Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-red-600 mb-6">
-                        Un patrimoine diversifié
-                    </h3>
-                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-                        Notre région recèle des trésors architecturaux et culturels qui 
-                        témoignent de la richesse de son histoire. Chaque pierre, chaque 
-                        tradition raconte une part de notre identité collective.
-                    </p>
-                    
-                    <!-- Heritage Types -->
-                    <div class="flex flex-wrap gap-3 mb-6">
-                        <span class="border border-red-300 text-red-600 hover:bg-red-50 transition-smooth rounded-full px-3 py-1 text-sm">Sites archéologiques</span>
-                        <span class="border border-red-300 text-red-600 hover:bg-red-50 transition-smooth rounded-full px-3 py-1 text-sm">Châteaux médiévaux</span>
-                        <span class="border border-red-300 text-red-600 hover:bg-red-50 transition-smooth rounded-full px-3 py-1 text-sm">Églises romanes</span>
-                        <span class="border border-red-300 text-red-600 hover:bg-red-50 transition-smooth rounded-full px-3 py-1 text-sm">Traditions rurales</span>
-                        <span class="border border-red-300 text-red-600 hover:bg-red-50 transition-smooth rounded-full px-3 py-1 text-sm">Savoir-faire artisanaux</span>
-                        <span class="border border-red-300 text-red-600 hover:bg-red-50 transition-smooth rounded-full px-3 py-1 text-sm">Paysages culturels</span>
-                    </div>
-                </div>
-
-                <div class="space-y-6">
-                    <div class="bg-white border border-amber-200 rounded-lg overflow-hidden group cursor-pointer hover:shadow-warm transition-smooth" onclick="openModal('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', 'Église romane du patrimoine caduceen')">
-                        <div class="aspect-video overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Église romane du patrimoine caduceen" class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-semibold text-red-600">Architecture religieuse</h4>
-                            <p class="text-sm text-gray-600">Églises romanes et gothiques de la région</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white border border-amber-200 rounded-lg overflow-hidden group cursor-pointer hover:shadow-warm transition-smooth" onclick="openModal('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80', 'Paysage du patrimoine naturel')">
-                        <div class="aspect-video overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Paysage du patrimoine naturel" class="w-full h-full object-cover group-hover:scale-105 transition-smooth">
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-semibold text-red-600">Patrimoine naturel</h4>
-                            <p class="text-sm text-gray-600">Paysages façonnés par l'histoire</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Citation historique -->
+            <div class="max-w-3xl mx-auto mt-12 p-6 bg-patrimoine-parchment border-moulding rounded-lg animate-slideUp" style="animation-delay: 0.4s;">
+                <p class="quote">
+                    "Le patrimoine est l'héritage du passé, dont nous profitons aujourd'hui et que nous transmettons aux générations à venir."
+                </p>
+                <p class="text-right text-sm text-gray-500 italic">
+                    — Charte de Venise, 1964
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Events Section -->
-    <section id="evenements" class="py-20 gradient-warm">
+    <!-- Section Actualités : Articles WordPress -->
+    <section id="actualites" class="py-20 bg-patrimoine-parchment">
         <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-4xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-red-600 mb-6">
-                    Événements & Activités
+            <div class="text-center max-w-4xl mx-auto mb-12 animate-fadeIn">
+                <span class="inline-block bg-patrimoine-clay/10 text-patrimoine-clay px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    📜 Actualités
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-patrimoine-stone mb-6">
+                    Nos dernières publications
                 </h2>
-                <div class="w-24 h-1 gradient-hero mx-auto mb-8 rounded-full"></div>
                 <p class="text-xl text-gray-600 leading-relaxed">
-                    Rejoignez-nous pour découvrir le patrimoine du Caduceen à travers nos 
-                    visites guidées, conférences et animations tout au long de l'année.
+                    Découvrez nos dernières actualités sur la préservation du patrimoine caduceen.
                 </p>
             </div>
 
-            <!-- Event Types -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-8 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        </svg>
+            <!-- Grille d'articles (chargée dynamiquement) -->
+            <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Skeleton Loading -->
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover">
+                    <div class="h-48 bg-patrimoine-stone/10 animate-pulse"></div>
+                    <div class="p-6">
+                        <div class="h-6 bg-patrimoine-stone/10 rounded animate-pulse mb-4"></div>
+                        <div class="h-4 bg-patrimoine-stone/10 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-patrimoine-stone/10 rounded animate-pulse w-3/4"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-red-600 mb-4">
-                        Visites guidées
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Découverte du patrimoine local avec nos guides passionnés
-                    </p>
                 </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-8 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover">
+                    <div class="h-48 bg-patrimoine-stone/10 animate-pulse"></div>
+                    <div class="p-6">
+                        <div class="h-6 bg-patrimoine-stone/10 rounded animate-pulse mb-4"></div>
+                        <div class="h-4 bg-patrimoine-stone/10 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-patrimoine-stone/10 rounded animate-pulse w-3/4"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-red-600 mb-4">
-                        Conférences
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Rencontres avec des historiens et spécialistes du patrimoine
-                    </p>
                 </div>
-
-                <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-8 text-center hover:shadow-warm hover:-translate-y-2 transition-bounce group cursor-pointer">
-                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-bounce shadow-primary">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover">
+                    <div class="h-48 bg-patrimoine-stone/10 animate-pulse"></div>
+                    <div class="p-6">
+                        <div class="h-6 bg-patrimoine-stone/10 rounded animate-pulse mb-4"></div>
+                        <div class="h-4 bg-patrimoine-stone/10 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-patrimoine-stone/10 rounded animate-pulse w-3/4"></div>
                     </div>
-                    <h3 class="text-xl font-bold text-red-600 mb-4">
-                        Animations
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Ateliers, randonnées et événements pour toute la famille
-                    </p>
                 </div>
             </div>
 
-            <!-- Upcoming Events -->
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-2xl font-bold text-red-600 mb-8 text-center">
-                    Prochains événements
-                </h3>
-                
-                <div class="space-y-6">
-                    <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                            <div class="flex-1">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="border border-red-300 text-red-600 bg-red-50 rounded-full px-3 py-1 text-xs">Visite guidée</span>
-                                    <span class="bg-green-100 text-green-800 rounded-full px-3 py-1 text-xs">Ouvert</span>
-                                </div>
-                                
-                                <h4 class="text-xl font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                    Visite guidée : Église romane de Cadéac
-                                </h4>
-                                
-                                <div class="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-600 text-sm">
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                        </svg>
-                                        <span>15 Mars 2024 à 14h30</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        </svg>
-                                        <span>Cadéac, centre village</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                                        </svg>
-                                        <span>15 places</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-shrink-0">
-                                <button class="gradient-primary text-white px-4 py-2 rounded-lg text-sm font-medium shadow-primary hover:shadow-lg transition-smooth">
-                                    S'inscrire
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                            <div class="flex-1">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="border border-red-300 text-red-600 bg-red-50 rounded-full px-3 py-1 text-xs">Conférence</span>
-                                    <span class="bg-red-100 text-red-800 rounded-full px-3 py-1 text-xs">Complet</span>
-                                </div>
-                                
-                                <h4 class="text-xl font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                    Conférence : Histoire des Hautes-Pyrénées
-                                </h4>
-                                
-                                <div class="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-600 text-sm">
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                        </svg>
-                                        <span>22 Mars 2024 à 19h00</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        </svg>
-                                        <span>Salle des fêtes, Arreau</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                                        </svg>
-                                        <span>50 places</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-shrink-0">
-                                <button class="bg-white/10 border border-white/20 text-gray-500 px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed" disabled>
-                                    Complet
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                            <div class="flex-1">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="border border-red-300 text-red-600 bg-red-50 rounded-full px-3 py-1 text-xs">Animation</span>
-                                    <span class="bg-green-100 text-green-800 rounded-full px-3 py-1 text-xs">Ouvert</span>
-                                </div>
-                                
-                                <h4 class="text-xl font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                    Randonnée patrimoniale : Sentier des bergers
-                                </h4>
-                                
-                                <div class="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-600 text-sm">
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                                        </svg>
-                                        <span>5 Avril 2024 à 10h00</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        </svg>
-                                        <span>Départ parking mairie</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-                                        </svg>
-                                        <span>20 places</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex-shrink-0">
-                                <button class="gradient-primary text-white px-4 py-2 rounded-lg text-sm font-medium shadow-primary hover:shadow-lg transition-smooth">
-                                    S'inscrire
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-12">
-                    <button class="bg-white/10 border border-white/20 text-red-600 hover:bg-white/20 px-8 py-4 rounded-lg text-lg font-medium transition-smooth">
-                        Voir tous les événements
-                    </button>
-                </div>
+            <!-- Bouton pour voir plus d'articles -->
+            <div class="text-center animate-slideUp" style="animation-delay: 0.6s;">
+                <button id="load-more-articles" class="border-2 border-patrimoine-gold text-patrimoine-gold px-8 py-3 rounded-md font-medium hover:bg-patrimoine-gold hover:text-patrimoine-stone transition-colors">
+                    Voir plus d'actualités
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-amber-50">
+    <!-- Section Événements -->
+    <section id="evenements" class="py-20 bg-patrimoine-stone/10">
         <div class="container mx-auto px-4">
-            <!-- Header -->
-            <div class="text-center max-w-4xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-red-600 mb-6">
-                    Contactez-nous
+            <div class="text-center max-w-4xl mx-auto mb-12 animate-fadeIn">
+                <span class="inline-block bg-patrimoine-moss/10 text-patrimoine-moss px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    Calendrier
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-patrimoine-stone mb-6">
+                    Nos prochains événements
                 </h2>
-                <div class="w-24 h-1 gradient-hero mx-auto mb-8 rounded-full"></div>
                 <p class="text-xl text-gray-600 leading-relaxed">
-                    Une question ? Une suggestion ? N'hésitez pas à nous contacter. 
-                    Nous serons ravis d'échanger avec vous sur le patrimoine du Caduceen.
+                    Participez à nos visites guidées, conférences et ateliers pour découvrir le patrimoine local.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <!-- Contact Information -->
-                <div class="space-y-8">
-                    <h3 class="text-2xl font-bold text-red-600 mb-6">
-                        Nos coordonnées
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <a href="mailto:contact@guet-patrimoine-caduceen.fr" class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-bounce shadow-primary">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                        Email
-                                    </h4>
-                                    <p class="text-sm text-gray-600">
-                                        contact@guet-patrimoine-caduceen.fr
-                                    </p>
-                                </div>
+            <!-- Grille d'événements -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Événement 1 -->
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover animate-slideUp">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center">
+                                <span class="text-patrimoine-gold text-xl">📅</span>
                             </div>
-                        </a>
-
-                        <a href="tel:+33562xxxxxx" class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-bounce shadow-primary">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                        Téléphone
-                                    </h4>
-                                    <p class="text-sm text-gray-600">
-                                        +33 5 62 XX XX XX
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-bounce shadow-primary">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                        Adresse
-                                    </h4>
-                                    <p class="text-sm text-gray-600 whitespace-pre-line">
-                                        Mairie de Cadéac
-65240 Cadéac
-                                    </p>
-                                </div>
-                            </div>
+                            <span class="bg-patrimoine-clay/10 text-patrimoine-clay px-3 py-1 rounded-full text-sm font-medium">
+                                Visite guidée
+                            </span>
                         </div>
-
-                        <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-6 hover:shadow-warm hover:-translate-y-1 transition-bounce group cursor-pointer">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-bounce shadow-primary">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-red-600 mb-2 group-hover:text-red-500 transition-smooth">
-                                        Horaires
-                                    </h4>
-                                    <p class="text-sm text-gray-600 whitespace-pre-line">
-                                        Lun-Ven : 9h-17h
-Sur rendez-vous
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA for Membership -->
-                    <div class="gradient-secondary shadow-secondary rounded-lg p-8">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">
-                            Rejoignez-nous !
-                        </h4>
-                        <p class="text-gray-800/90 mb-6 leading-relaxed">
-                            Devenez membre de l'association et participez activement à la 
-                            préservation du patrimoine du Caduceen.
+                        <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-2">
+                            Découverte de l'église romane de Cadéac
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Explorez les secrets architecturaux de cette église du XIIe siècle, joyau du patrimoine local.
                         </p>
-                        <button class="bg-white/10 border border-white/20 text-red-600 hover:bg-white/20 px-4 py-2 rounded-lg text-sm font-medium transition-smooth">
-                            Adhérer maintenant
+                        <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span>📍</span> Cadéac, Place de l'Église
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>🕒</span> 14h00 - 16h00
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>💶</span> Gratuit (adhérents) / 5€ (non-adhérents)
+                            </div>
+                        </div>
+                        <button class="w-full bg-patrimoine-gold text-patrimoine-stone py-2 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors">
+                            Réserver
                         </button>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div>
-                    <div class="bg-white/90 backdrop-blur-sm border border-amber-200 rounded-lg p-8 shadow-warm">
-                        <h3 class="text-2xl font-bold text-red-600 mb-6">
-                            Envoyez-nous un message
+                <!-- Événement 2 -->
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover animate-slideUp" style="animation-delay: 0.2s;">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center">
+                                <span class="text-patrimoine-gold text-xl">🎤</span>
+                            </div>
+                            <span class="bg-patrimoine-moss/10 text-patrimoine-moss px-3 py-1 rounded-full text-sm font-medium">
+                                Conférence
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-2">
+                            L'histoire des châteaux forts des Hautes-Pyrénées
                         </h3>
-                        
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="space-y-2">
-                                    <label for="firstName" class="text-sm font-medium text-gray-800">
-                                        Prénom *
-                                    </label>
-                                    <input 
-                                        id="firstName"
-                                        type="text"
-                                        placeholder="Votre prénom"
-                                        class="w-full px-3 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-smooth"
-                                    >
-                                </div>
-                                <div class="space-y-2">
-                                    <label for="lastName" class="text-sm font-medium text-gray-800">
-                                        Nom *
-                                    </label>
-                                    <input 
-                                        id="lastName"
-                                        type="text"
-                                        placeholder="Votre nom"
-                                        class="w-full px-3 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-smooth"
-                                    >
-                                </div>
+                        <p class="text-gray-600 mb-4">
+                            Conférence animée par l'historien local Jean Dupont, spécialiste de l'architecture médiévale.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span>📍</span> Salle des fêtes, Arreau
                             </div>
-                            
-                            <div class="space-y-2">
-                                <label for="email" class="text-sm font-medium text-gray-800">
-                                    Email *
-                                </label>
-                                <input 
-                                    id="email"
-                                    type="email"
-                                    placeholder="votre.email@example.com"
-                                    class="w-full px-3 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-smooth"
-                                >
+                            <div class="flex items-center gap-2">
+                                <span>🕒</span> 20h00
                             </div>
-                            
-                            <div class="space-y-2">
-                                <label for="subject" class="text-sm font-medium text-gray-800">
-                                    Sujet
-                                </label>
-                                <input 
-                                    id="subject"
-                                    type="text"
-                                    placeholder="Sujet de votre message"
-                                    class="w-full px-3 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-smooth"
-                                >
+                            <div class="flex items-center gap-2">
+                                <span>💶</span> Entrée libre
                             </div>
-                            
-                            <div class="space-y-2">
-                                <label for="message" class="text-sm font-medium text-gray-800">
-                                    Message *
-                                </label>
-                                <textarea 
-                                    id="message"
-                                    placeholder="Votre message..."
-                                    rows="5"
-                                    class="w-full px-3 py-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-smooth resize-none"
-                                ></textarea>
-                            </div>
-                            
-                            <button type="submit" class="gradient-hero text-white px-8 py-4 rounded-lg text-lg font-medium w-full shadow-primary hover:shadow-lg transition-smooth group">
-                                <svg class="w-5 h-5 inline-block mr-2 group-hover:translate-x-1 transition-smooth" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                                </svg>
-                                Envoyer le message
-                            </button>
-                        </form>
+                        </div>
+                        <button class="w-full bg-patrimoine-gold text-patrimoine-stone py-2 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors">
+                            Plus d'infos
+                        </button>
                     </div>
+                </div>
+
+                <!-- Événement 3 -->
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover animate-slideUp" style="animation-delay: 0.4s;">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center">
+                                <span class="text-patrimoine-gold text-xl">🎨</span>
+                            </div>
+                            <span class="bg-patrimoine-clay/10 text-patrimoine-clay px-3 py-1 rounded-full text-sm font-medium">
+                                Atelier
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-2">
+                            Atelier de restauration de pierres anciennes
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Apprenez les techniques traditionnelles de restauration avec nos experts.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span>📍</span> Atelier municipal, Luz-Saint-Sauveur
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>🕒</span> 09h00 - 12h00
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>💶</span> 15€ (matériel inclus)
+                            </div>
+                        </div>
+                        <button class="w-full bg-patrimoine-gold text-patrimoine-stone py-2 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors">
+                            S'inscrire
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Événement 4 -->
+                <div class="bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover animate-slideUp" style="animation-delay: 0.6s;">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center">
+                                <span class="text-patrimoine-gold text-xl">🚶</span>
+                            </div>
+                            <span class="bg-patrimoine-moss/10 text-patrimoine-moss px-3 py-1 rounded-full text-sm font-medium">
+                                Randonnée
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-2">
+                            Randonnée patrimoniale : Sur les traces des bergers
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Parcourez les sentiers historiques avec un guide spécialisé en patrimoine pastoral.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span>📍</span> Départ : Parking de Luz-Saint-Sauveur
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>🕒</span> 08h30 - 17h00
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span>💶</span> 10€ (pique-nique tiré du sac)
+                            </div>
+                        </div>
+                        <button class="w-full bg-patrimoine-gold text-patrimoine-stone py-2 rounded-md font-medium hover:bg-patrimoine-gold/90 transition-colors">
+                            Réserver
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie : Photos du patrimoine -->
+    <section class="py-20 bg-patrimoine-parchment">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-4xl mx-auto mb-12 animate-fadeIn">
+                <span class="inline-block bg-patrimoine-clay/10 text-patrimoine-clay px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    Galerie
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-patrimoine-stone mb-6">
+                    Le Caduceen en images
+                </h2>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Découvrez la beauté de notre patrimoine à travers ces photographies.
+                </p>
+            </div>
+
+            <!-- Grille de photos (Masonry) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Église romane"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Église de Cadéac</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Village médiéval"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Rues de Luz</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Château fort"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Château de Luz</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1578894381164-0573b98c64f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Paysage des Pyrénées"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Vallée du Caduceen</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Artisanat local"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Artisanat traditionnel</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.5s;">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Fresque ancienne"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Fresques médiévales</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.6s;">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Pont ancien"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Pont romain</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg border-moulding animate-slideUp" style="animation-delay: 0.7s;">
+                    <img src="https://images.unsplash.com/photo-1578894381164-0573b98c64f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Moulin à eau"
+                         class="w-full h-64 object-cover img-vintage group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-patrimoine-stone/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-serif text-lg">Moulin traditionnel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Adhésion -->
+    <section id="adhérer" class="py-20 bg-gradient-to-r from-patrimoine-stone to-patrimoine-clay">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-patrimoine-parchment rounded-2xl p-8 md:p-12 shadow-2xl border-moulding animate-fadeIn">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="inline-block bg-patrimoine-gold/10 text-patrimoine-gold px-4 py-1 rounded-full text-sm font-medium mb-4">
+                            Rejoignez-nous
+                        </span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-patrimoine-stone mb-6">
+                            Devenez membre de l'association
+                        </h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            En adhérant au Guet Patrimoine Caduceen, vous soutenez activement la préservation du patrimoine local et bénéficiez de nombreux avantages :
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="text-patrimoine-gold mt-1">✓</span>
+                                <span>Accès gratuit à toutes nos visites guidées</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-patrimoine-gold mt-1">✓</span>
+                                <span>Réductions sur nos conférences et ateliers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-patrimoine-gold mt-1">✓</span>
+                                <span>Recevez notre newsletter exclusive</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-patrimoine-gold mt-1">✓</span>
+                                <span>Participez à nos assemblées générales</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-patrimoine-gold mt-1">✓</span>
+                                <span>Accès à notre bibliothèque de ressources</span>
+                            </li>
+                        </ul>
+                        <p class="text-lg font-medium text-patrimoine-stone">
+                            Cotisation annuelle : <span class="text-2xl font-bold text-patrimoine-gold">20€</span>
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-48 h-48 mx-auto mb-6 bg-patrimoine-gold/10 rounded-full flex items-center justify-center border-4 border-patrimoine-gold">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-patrimoine-gold rounded-full mx-auto mb-2 flex items-center justify-center">
+                                    <span class="text-white text-2xl font-serif font-bold">GPC</span>
+                                </div>
+                                <p class="text-patrimoine-gold font-serif text-lg">Membre</p>
+                            </div>
+                        </div>
+                        <a href="#contact" class="inline-block bg-patrimoine-gold text-patrimoine-stone px-8 py-4 rounded-lg font-medium text-lg hover:bg-patrimoine-gold/90 transition-colors shadow-engraved">
+                            Adhérer maintenant
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 bg-patrimoine-parchment">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-4xl mx-auto mb-12 animate-fadeIn">
+                <span class="inline-block bg-patrimoine-moss/10 text-patrimoine-moss px-4 py-1 rounded-full text-sm font-medium mb-4">
+                    Contactez-nous
+                </span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-patrimoine-stone mb-6">
+                    Une question ? Un projet ?
+                </h2>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    N'hésitez pas à nous contacter pour toute information ou pour rejoindre nos actions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Coordonnées -->
+                <div class="space-y-8 animate-slideUp">
+                    <div class="bg-white p-6 rounded-lg border border-patrimoine-stone/20 shadow-engraved">
+                        <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-4">Nos coordonnées</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="text-patrimoine-gold">✉️</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-patrimoine-stone">Email</h4>
+                                    <a href="mailto:contact@guet-patrimoine-caduceen.fr" class="text-gray-600 hover:text-patrimoine-gold transition-colors">
+                                        contact@guet-patrimoine-caduceen.fr
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="text-patrimoine-gold">📞</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-patrimoine-stone">Téléphone</h4>
+                                    <a href="tel:+33562xxxxxx" class="text-gray-600 hover:text-patrimoine-gold transition-colors">
+                                        +33 5 62 XX XX XX
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <span class="text-patrimoine-gold">📍</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-patrimoine-stone">Adresse</h4>
+                                    <p class="text-gray-600">
+                                        Maison du Patrimoine<br>
+                                        1 Place de l'Église<br>
+                                        65100 Cadéac
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Réseaux sociaux -->
+                    <div class="bg-white p-6 rounded-lg border border-patrimoine-stone/20 shadow-engraved">
+                        <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-4">Suivez-nous</h3>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center text-patrimoine-gold hover:bg-patrimoine-gold hover:text-patrimoine-stone transition-colors">
+                                <span class="text-xl">f</span>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center text-patrimoine-gold hover:bg-patrimoine-gold hover:text-patrimoine-stone transition-colors">
+                                <span class="text-xl">📷</span>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-patrimoine-gold/10 rounded-lg flex items-center justify-center text-patrimoine-gold hover:bg-patrimoine-gold hover:text-patrimoine-stone transition-colors">
+                                <span class="text-xl">in</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire de contact -->
+                <div class="bg-white p-6 rounded-lg border border-patrimoine-stone/20 shadow-engraved animate-slideUp" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-serif font-bold text-patrimoine-stone mb-6">Envoyez-nous un message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-patrimoine-stone mb-2">Prénom *</label>
+                                <input type="text" id="firstName" required
+                                       class="w-full px-4 py-3 border border-patrimoine-stone/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-patrimoine-gold focus:border-patrimoine-gold transition-colors">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-patrimoine-stone mb-2">Nom *</label>
+                                <input type="text" id="lastName" required
+                                       class="w-full px-4 py-3 border border-patrimoine-stone/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-patrimoine-gold focus:border-patrimoine-gold transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-patrimoine-stone mb-2">Email *</label>
+                            <input type="email" id="email" required
+                                   class="w-full px-4 py-3 border border-patrimoine-stone/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-patrimoine-gold focus:border-patrimoine-gold transition-colors">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-patrimoine-stone mb-2">Téléphone</label>
+                            <input type="tel" id="phone"
+                                   class="w-full px-4 py-3 border border-patrimoine-stone/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-patrimoine-gold focus:border-patrimoine-gold transition-colors">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-patrimoine-stone mb-2">Message *</label>
+                            <textarea id="message" rows="5" required
+                                      class="w-full px-4 py-3 border border-patrimoine-stone/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-patrimoine-gold focus:border-patrimoine-gold transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-patrimoine-gold text-patrimoine-stone py-3 rounded-lg font-medium hover:bg-patrimoine-gold/90 transition-colors shadow-engraved">
+                            Envoyer le message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="gradient-primary text-white">
-        <div class="container mx-auto px-4 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Association Info -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 gradient-secondary rounded-lg flex items-center justify-center shadow-secondary">
-                            <span class="text-gray-800 font-bold text-lg">GPC</span>
+    <footer class="bg-patrimoine-stone text-patrimoine-parchment py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Logo et description -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <div class="w-12 h-12 bg-patrimoine-gold rounded-full flex items-center justify-center border-2 border-patrimoine-gold">
+                            <span class="text-white font-serif text-lg font-bold">GPC</span>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold">Guet Patrimoine Caduceen</h3>
-                            <p class="text-sm text-white/80">Préserver notre héritage</p>
+                            <h3 class="text-xl font-serif font-bold">Guet Patrimoine</h3>
+                            <p class="text-sm">Caduceen</p>
                         </div>
                     </div>
-                    <p class="text-white/90 text-sm leading-relaxed">
-                        Association dédiée à la valorisation, découverte et transmission 
-                        du patrimoine historique, culturel et architectural des Hautes-Pyrénées.
+                    <p class="text-sm text-patrimoine-parchment/80 mb-4">
+                        Association loi 1901 dédiée à la préservation du patrimoine des Hautes-Pyrénées.
                     </p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                        <a href="#" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">
+                            <span>Mentions légales</span>
+                        </a>
+                        <a href="#" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">
+                            <span>Politique de confidentialité</span>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Quick Links -->
-                <div class="space-y-4">
-                    <h4 class="text-lg font-bold">Liens rapides</h4>
-                    <nav class="flex flex-col space-y-2">
-                        <a href="#association" class="text-white/90 hover:text-white transition-smooth text-sm">
-                            Notre mission
-                        </a>
-                        <a href="#histoire" class="text-white/90 hover:text-white transition-smooth text-sm">
-                            Histoire
-                        </a>
-                        <a href="#evenements" class="text-white/90 hover:text-white transition-smooth text-sm">
-                            Événements
-                        </a>
-                        <a href="#contact" class="text-white/90 hover:text-white transition-smooth text-sm">
-                            Contact
-                        </a>
+                <!-- Liens rapides -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-lg font-serif font-bold mb-4">Liens rapides</h4>
+                    <nav class="flex flex-col gap-2">
+                        <a href="#association" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">Association</a>
+                        <a href="#histoire" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">Histoire</a>
+                        <a href="#actualites" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">Actualités</a>
+                        <a href="#evenements" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">Événements</a>
+                        <a href="#contact" class="text-patrimoine-parchment/80 hover:text-patrimoine-gold transition-colors">Contact</a>
                     </nav>
                 </div>
 
-                <!-- Contact Info -->
-                <div class="space-y-4">
-                    <h4 class="text-lg font-bold">Contact</h4>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3 text-sm">
-                            <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span class="text-white/90">contact@gpc65.fr</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm">
-                            <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                            <span class="text-white/90">+33 5 62 XX XX XX</span>
-                        </div>
-                        <div class="flex items-start gap-3 text-sm">
-                            <svg class="w-4 h-4 text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            </svg>
-                            <span class="text-white/90">
-                                Mairie de Cadéac<br>
-                                65240 Cadéac
-                            </span>
-                        </div>
-                    </div>
+                <!-- Newsletter -->
+                <div class="text-center md:text-left">
+                    <h4 class="text-lg font-serif font-bold mb-4">Newsletter</h4>
+                    <p class="text-sm text-patrimoine-parchment/80 mb-4">
+                        Restez informé de nos actualités et événements.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email"
+                               class="flex-1 px-4 py-2 rounded-l-lg border border-patrimoine-parchment/30 focus:outline-none focus:ring-2 focus:ring-patrimoine-gold">
+                        <button type="submit" class="bg-patrimoine-gold text-patrimoine-stone px-4 py-2 rounded-r-lg hover:bg-patrimoine-gold/90 transition-colors">
+                            S'abonner
+                        </button>
+                    </form>
                 </div>
             </div>
 
-            <div class="border-t border-white/20 mt-8 pt-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p class="text-sm text-white/80">
-                        © 2024 Guet Patrimoine Caduceen. Tous droits réservés.
-                    </p>
-                    <div class="flex items-center gap-2 text-sm text-white/80">
-                        <span>Fait avec</span>
-                        <svg class="w-4 h-4 text-yellow-400 animate-pulse-soft" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span>pour le patrimoine du Caduceen</span>
-                    </div>
-                </div>
+            <!-- Copyright -->
+            <div class="border-t border-patrimoine-parchment/20 pt-8 text-center text-sm text-patrimoine-parchment/60">
+                <p>© 2024 Guet Patrimoine Caduceen. Tous droits réservés.</p>
+                <p class="mt-2">
+                    Site web conçu avec ❤️ pour la préservation du patrimoine des Hautes-Pyrénées.
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal fixed inset-0 bg-black/80 z-50 items-center justify-center p-4">
-        <div class="relative max-w-4xl max-h-full">
-            <button id="closeModal" class="absolute top-4 right-4 text-white/80 hover:text-white z-10">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg">
-            <p id="modalCaption" class="text-white text-center mt-4"></p>
-        </div>
-    </div>
-
-    <!-- JavaScript -->
+    <!-- Script pour charger les articles WordPress -->
     <script>
-        // Mobile menu functionality
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        document.addEventListener('DOMContentLoaded', async () => {
+            const wp = new WordPressHeadlessService();
+            const articlesGrid = document.getElementById('articles-grid');
+            const loadMoreButton = document.getElementById('load-more-articles');
 
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
-        });
+            let currentPage = 1;
+            let hasMoreArticles = true;
 
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-        });
+            // Charge les articles
+            const loadArticles = async (page = 1) => {
+                try {
+                    const { articles, pagination } = await wp.getArticles({ perPage: 6, page });
 
-        // Close mobile menu when clicking on navigation links
-        const mobileNavLinks = mobileMenu.querySelectorAll('a[href^="#"]');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
+                    if (page === 1) {
+                        articlesGrid.innerHTML = '';
+                    }
+
+                    if (articles.length === 0) {
+                        hasMoreArticles = false;
+                        loadMoreButton.style.display = 'none';
+                        return;
+                    }
+
+                    articles.forEach(article => {
+                        const articleElement = document.createElement('div');
+                        articleElement.className = 'bg-white border border-patrimoine-stone/20 rounded-lg overflow-hidden shadow-engraved card-hover animate-fadeIn';
+                        articleElement.innerHTML = `
+                            ${article.featuredImage?.node ? `
+                                <div class="aspect-video overflow-hidden">
+                                    <img src="${article.featuredImage.node.sourceUrl}"
+                                         alt="${article.featuredImage.node.altText || article.title}"
+                                         class="w-full h-full object-cover img-vintage">
+                                </div>
+                            ` : `
+                                <div class="aspect-video bg-patrimoine-stone/10 flex items-center justify-center">
+                                    <span class="text-4xl text-patrimoine-stone/30">🏛️</span>
+                                </div>
+                            `}
+                            <div class="p-6">
+                                <div class="flex gap-2 mb-3">
+                                    ${article.categories.nodes.map(cat => `
+                                        <span class="border border-patrimoine-gold/30 text-patrimoine-gold text-xs px-2 py-1 rounded-full">
+                                            ${cat.name}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                                <h3 class="text-lg font-serif font-bold text-patrimoine-stone mb-2">
+                                    <a href="/public/pages/${new Date(article.date).toLocaleDateString('fr-FR', {
+                                        year: 'numeric',
+                                        month: '2-digit',
+                                        day: '2-digit'
+                                    }).replace(/\//g, '/')}/${article.slug}"
+                                       class="hover:text-patrimoine-gold transition-colors">
+                                        ${article.title}
+                                    </a>
+                                </h3>
+                                <p class="text-gray-600 mb-4 line-clamp-3">${article.excerpt}</p>
+                                <div class="flex justify-between items-center text-sm text-gray-500">
+                                    <span>${new Date(article.date).toLocaleDateString('fr-FR')}</span>
+                                    <a href="/public/pages/${new Date(article.date).toLocaleDateString('fr-FR', {
+                                        year: 'numeric',
+                                        month: '2-digit',
+                                        day: '2-digit'
+                                    }).replace(/\//g, '/')}/${article.slug}"
+                                       class="text-patrimoine-gold font-medium hover:underline">
+                                        Lire la suite
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                        articlesGrid.appendChild(articleElement);
+                    });
+
+                    // Met à jour le bouton "Voir plus"
+                    if (page >= pagination.pages) {
+                        hasMoreArticles = false;
+                        loadMoreButton.style.display = 'none';
+                    } else {
+                        loadMoreButton.style.display = 'block';
+                    }
+
+                } catch (error) {
+                    articlesGrid.innerHTML = `
+                        <div class="col-span-full text-center p-8">
+                            <p class="text-red-500">Erreur lors du chargement des articles: ${error.message}</p>
+                        </div>
+                    `;
+                    loadMoreButton.style.display = 'none';
+                }
+            };
+
+            // Charge les premiers articles
+            await loadArticles(currentPage);
+
+            // Gère le bouton "Voir plus"
+            loadMoreButton.addEventListener('click', async () => {
+                if (hasMoreArticles) {
+                    currentPage++;
+                    await loadArticles(currentPage);
+                }
             });
         });
-
-        // Image modal functionality
-        function openModal(imageSrc, caption) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalCaption = document.getElementById('modalCaption');
-            
-            modalImage.src = imageSrc;
-            modalCaption.textContent = caption;
-            modal.classList.add('open');
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('open');
-        }
-
-        document.getElementById('closeModal').addEventListener('click', closeModal);
-
-        // Close modal when clicking outside the image
-        document.getElementById('imageModal').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
-        });
     </script>
+    <script src="js/wordpress-headless-service.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/menu-mobile.js"></script>
 </body>
 </html>
