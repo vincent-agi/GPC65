@@ -4,7 +4,7 @@
  */
 const API = (() => {
   // URL de base de l'API WordPress (à adapter)
-  const BASE_URL = 'https://gpc65-gestion.cazu1740.odns.fr/wp-json/wp/v2';
+  const BASE_URL = 'https://gpc65.serenypets.fr/wp-json/wp/v2';
 
   /**
    * Récupère tous les articles avec pagination.
