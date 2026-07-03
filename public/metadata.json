@@ -1,0 +1,6 @@
+{
+  "name": "GPC65 Cultural Heritage Association",
+  "description": "The official website for the GPC65 Cultural Heritage Association, featuring historical research, preservation journals, blog, and community events from Cadéac in the Pyrenees.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

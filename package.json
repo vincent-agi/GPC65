@@ -1,0 +1,21 @@
+{
+  "name": "gpc65",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "cd public && npm run build && cd .. && firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincent-agi/GPC65.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vincent-agi/GPC65/issues"
+  },
+  "homepage": "https://github.com/vincent-agi/GPC65#readme"
+}

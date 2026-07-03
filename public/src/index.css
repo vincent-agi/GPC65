@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+}
+
+.wp-block-code {
+  background-color: #282c34; /* Fond sombre */
+  color: #abb2bf;           /* Couleur du texte */
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #3e4451;
+  overflow-x: auto;         /* Permet le défilement horizontal sur mobile */
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Optionnel : styliser le contenu à l'intérieur du bloc */
+.wp-block-code code {
+  color: inherit;
+  background-color: transparent;
+  padding: 0;
+}
+
+/* --- Style pour le titre du tableau (wp-block-heading) --- */
+.wp-block-heading {
+  font-family: inherit;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 1.5rem;
+  padding-left: 10px;
+  border-left: 4px solid #009879; /* Accent visuel */
+}
+
+/* --- Style du conteneur du tableau (wp-block-table) --- */
+.wp-block-table {
+  margin: 2rem 0;
+  overflow-x: auto; /* Sécurité pour le responsive */
+}
+
+/* --- Style spécifique pour le tableau fixe --- */
+.wp-block-table table.has-fixed-layout {
+  width: 100%;
+  table-layout: fixed; /* Force le respect des largeurs */
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #dfe6e9;
+  border-radius: 8px;
+  overflow: hidden; /* Nécessaire pour les coins arrondis */
+}
+
+/* Entêtes */
+.wp-block-table table.has-fixed-layout thead th {
+  background-color: #f8f9fa;
+  color: #636e72;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 15px;
+  border-bottom: 2px solid #dfe6e9;
+}
+
+/* Cellules */
+.wp-block-table table.has-fixed-layout td,
+.wp-block-table table.has-fixed-layout th {
+  padding: 12px 15px;
+  word-wrap: break-word; /* Gère les textes longs dans le layout fixe */
+}
+
+.wp-block-table table.has-fixed-layout tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #f1f2f6;
+}
+
+/* Effet ligne au survol */
+.wp-block-table table.has-fixed-layout tbody tr:hover {
+  background-color: #fcfcfc;
+}
+
+/* Style des éléments code à l'intérieur du tableau */
+.wp-block-table table.has-fixed-layout code {
+  background-color: #f1f2f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #d63384;
+}
