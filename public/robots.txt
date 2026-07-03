@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://gpc65-website.web.app/sitemap.xml
